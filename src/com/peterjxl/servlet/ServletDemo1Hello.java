@@ -1,4 +1,4 @@
-package com.peterjxl;
+package com.peterjxl.servlet;
 
 import javax.servlet.*;
 import java.io.IOException;

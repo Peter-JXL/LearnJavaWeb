@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>demo1</servlet-name>
-        <servlet-class>com.peterjxl.ServletDemo1Hello</servlet-class>
+        <servlet-class>com.peterjxl.servlet.ServletDemo1Hello</servlet-class>
     </servlet>
 
     <!--配置Servlet -->
@@ -18,7 +18,7 @@
 
     <servlet>
         <servlet-name>demo2</servlet-name>
-        <servlet-class>com.peterjxl.ServletDemo2Circle</servlet-class>
+        <servlet-class>com.peterjxl.servlet.ServletDemo2Circle</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
 
@@ -26,5 +26,11 @@
     <servlet-mapping>
         <servlet-name>demo2</servlet-name>  <!-- 访问路径时，使用哪个Servlet-->
         <url-pattern>/demo2</url-pattern>   <!-- 访问哪个路径-->
+    </servlet-mapping>
+
+    <!-- 可以多个路径对应一个Servlet   -->
+    <servlet-mapping>
+        <servlet-name>demo2</servlet-name>  <!-- 访问路径时，使用哪个Servlet-->
+        <url-pattern>/demo4</url-pattern>   <!-- 访问哪个路径-->
     </servlet-mapping>
 </web-app>
