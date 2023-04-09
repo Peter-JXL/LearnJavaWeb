@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+          // 1. 定义基本格式
+          var person = {
+            "name": "张三",
+            "age" : 23,
+            "gender": true
+          }
+          console.log(person.name)      //张三
+          console.log(person["name"])   //张三
+
+
+          // 2。垫套格式，例如JSON数据里有个数组
+          var personsData = {
+            persons: [
+              {"name": "张三", "age" : 23, "gender": true},
+              {"name": "李四", "age" : 24, "gender": true},
+              {"name": "王五", "age" : 25, "gender": true}
+            ]
+          };
+          console.log(personsData.persons[2].name) //王五
+
+
+          // 3. 第三种嵌套格式：数组里定义多个JSON
+          var personsData3 = [
+            {"name": "张三", "age" : 23, "gender": true},
+            {"name": "李四", "age" : 24, "gender": true},
+            {"name": "王五", "age" : 25, "gender": true}
+          ]
+          console.log(personsData3[1].name) // 李四
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

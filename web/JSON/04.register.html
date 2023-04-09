@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <script>
+            // 页面加载完成后
+            $(function (){
+                // 给username绑定blur事件
+                $("#username").blur(function (){
+                    var username = $(this).val()
+
+                    // 期望服务器响应回的数据格式：
+                    // { "userExsit": true, "msg" : "此用户名太受欢迎，请更换一个"}
+                    // { "userExsit": false, "msg" : "用户名可用"}
+
+                    $.get("/hello/findUserServlet", {username:username}, function (data){
+                        // 判断userExsit的值
+                        var span = $("#s_username")
+                        if(data.userExist === true){
+                            span.css("color", "red")
+                            span.html(data.msg);
+                        }else {
+                            span.css("color", "green")
+                            span.html(data.msg);
+                        }
+                    }, "json")
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <form>
+            <input type="text" name="username" id="username" placeholder="请输入用户名"> <br/>
+            <span id="s_username"> </span>
+        </form>
+    </body>
+</html>
